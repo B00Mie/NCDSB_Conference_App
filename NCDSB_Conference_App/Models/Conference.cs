@@ -34,6 +34,8 @@ namespace NCDSB_Conference_App.Models
         public string Description { get; set; }
 
         public virtual ICollection<Mileage> Mileages { get; set; }
+
+        public virtual ICollection<ConferenceUser> Users { get; set; }
     }
 
     public class Conference_Cost_Lookup

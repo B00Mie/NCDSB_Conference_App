@@ -1,14 +1,21 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace NCDSB_Conference_App.Models.Security
 {
     public class User : IdentityUser
-    {
+    {   
+        public User(string userName) : base(userName)
+        {
+
+        }
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "Please provide your first name")]
         public string FirstName { get; set; }
@@ -66,5 +73,13 @@ namespace NCDSB_Conference_App.Models.Security
         public int PositionID { get; set; } //To be discussed
 
         public int ImageID { get; set; } //To be discussed
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Security.User> manager)
+        {
+            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            // Add custom user claims here
+            return userIdentity;
+        }
     }
 }
