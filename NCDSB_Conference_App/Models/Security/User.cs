@@ -61,6 +61,8 @@ namespace NCDSB_Conference_App.Models.Security
 
         public virtual Position Position { get; set; }
 
+        public virtual ICollection<ConferenceUser> Conferences { get; set; }
+
         public int PositionID { get; set; } //To be discussed
 
         public int ImageID { get; set; } //To be discussed

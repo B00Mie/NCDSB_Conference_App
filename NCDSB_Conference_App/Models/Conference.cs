@@ -71,5 +71,7 @@ namespace NCDSB_Conference_App.Models
 
         public virtual Conference Conference { get; set; }
 
+        public virtual ICollection<ConferenceUser> Users { get; set; }
+
     }
 }
