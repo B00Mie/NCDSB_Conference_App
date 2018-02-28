@@ -25,7 +25,7 @@ namespace NCDSB_Conference_App.Models
         [Required(ErrorMessage = "This field is required")]
         public DateTime EndDate { get; set; }
 
-        [Display(Name = "Conference Location")]
+        [Display(Name = "Confereence Location")]
         [Required(ErrorMessage = "This field is required")]
         public string Location { get; set; }
 
