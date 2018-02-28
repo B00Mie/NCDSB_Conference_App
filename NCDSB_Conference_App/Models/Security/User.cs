@@ -59,6 +59,8 @@ namespace NCDSB_Conference_App.Models.Security
         [RegularExpression("^\\d{10}$", ErrorMessage = "Please provide a valid 10-digit phone number")]
         public Int64 Phone { get; set; }
 
+        public virtual Position Position { get; set; }
+
         public int PositionID { get; set; } //To be discussed
 
         public int ImageID { get; set; } //To be discussed
